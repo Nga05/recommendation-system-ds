@@ -84,7 +84,7 @@ def recommender(view_product, dictionary, tfidf, index, df):
 def main():
     # First some code.
     st.image('dataset/dataset/tiki_logo.jpg')
-    st.title("Recommendation App for TiKi")
+    st.title("Recommendation System Project")
 
     menu = ['Overview', 'CBF - Gensim Model', 'CBF - Cosine Similarity Model', 'CF - ALS Model']
     choice = st.sidebar.selectbox("Menu", menu)
