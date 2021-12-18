@@ -92,7 +92,7 @@ def main():
     ## Overview
     if choice == 'Overview':
         st.subheader('Overview')
-        st.markdown('####### Tiki là một hệ sinh thái thương mại “all in one”, trong đó có tiki.vn, là một website thương mại điện tử đứng top 2 của Việt Nam, top 6 khu vực Đông Nam Á.\nTrên trang này đã triển khai nhiều tiện ích hỗ trợ nâng cao trải nghiệm người dùng và họ muốn xây dựng nhiều tiện ích hơn nữa.\nGiả sử công ty này chưa triển khai Recommender System và bạn được yêu cầu triển khai hệ thống này, bạn sẽ làm gì?')
+        st.markdown('+ Tiki là một hệ sinh thái thương mại “all in one”, trong đó có tiki.vn, là một website thương mại điện tử đứng top 2 của Việt Nam, top 6 khu vực Đông Nam Á.\nTrên trang này đã triển khai nhiều tiện ích hỗ trợ nâng cao trải nghiệm người dùng và họ muốn xây dựng nhiều tiện ích hơn nữa.\nGiả sử công ty này chưa triển khai Recommender System và bạn được yêu cầu triển khai hệ thống này, bạn sẽ làm gì?')
         st.markdown('##### Sử dụng các mô hình Recommendation System để xây dựng hệ thống đề xuất cho các mặt hàng công nghệ của Tiki:')
         st.markdown('+ Content Based Filtering: Gensim và Consine Similarity model')
         st.markdown('+ Collaborative Filtering: ALS model')
