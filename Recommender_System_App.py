@@ -103,6 +103,10 @@ def main():
 
         st.markdown('**Thông tin đánh giá của khách hàng:**')
         st.dataframe(review.head(10))
+        
+        # download dataset
+        with open(path_to_zip_file_dataset, 'rb') as f:
+            st.download_button('Download dataset', f, file_name='dataset.zip') 
 
     ## Gensim model
     elif choice == 'CBF - Gensim Model':
