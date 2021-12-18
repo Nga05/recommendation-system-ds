@@ -103,10 +103,9 @@ def main():
 
         st.markdown('**Thông tin đánh giá của khách hàng:**')
         st.dataframe(review.head(10))
-        
-        # download dataset
+
         with open(path_to_zip_file_dataset, 'rb') as f:
-            st.download_button('Download dataset', f, file_name='dataset.zip') 
+            st.download_button('Download dataset', f, file_name='dataset.zip')        
 
     ## Gensim model
     elif choice == 'CBF - Gensim Model':
@@ -222,9 +221,34 @@ def main():
                 result['product_id'] = product_lst
                 result['rating'] = rating_lst
                 result.sort_values(by='rating', axis=0, ascending=False, inplace=True)
+                recommend = pd.merge(result, products, left_on='product_id', right_on='item_id', how='left')
+                results =recommend[['customer_id','product_id','name', 'brand', 'price', 'url', 'image']]
 
                 st.text('Danh sách 10 sản phẩm được đề xuất có xếp hạng cao nhất')
-                st.table(result)
+                st.write(results)
+                st.write('\n')
+                st.markdown('**List Recommened Products**')
+
+                # display product image
+                imgs = results['image'].tolist()
+                names = results['name'].tolist()
+                prodIds = results['product_id'].tolist()
+                urls = results['url'].tolist()
+                prices = results['price'].tolist()
+                brands = results['brand'].tolist()
+                for i in range(results.shape[0]):
+                    with st.container():
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.image(imgs[i], width=300)
+                        with col2:    
+                            link = '[product link](' + urls[i] + ')'
+                            st.markdown(link, unsafe_allow_html=True)
+                            # st.write('View detail: ', urls[i])                    
+                            st.write('Name: ', names[i])
+                            st.write('Brand: ', brands[i])
+                            st.write('ID: ', str(prodIds[i]))
+                            st.write('Price: '+ str(prices[i]) + ' VND')
 
 if __name__ == '__main__':
     main()
