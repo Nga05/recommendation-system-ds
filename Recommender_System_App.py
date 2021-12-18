@@ -97,11 +97,11 @@ def main():
         st.markdown('+ Content Based Filtering: Gensim và Consine Similarity model')
         st.markdown('+ Collaborative Filtering: ALS model')
         
-        st.markdown('**Danh sách các sản phẩm công nghệ**')
+        st.markdown('**Danh sách các sản phẩm công nghệ:**')
         st.dataframe(products.drop(['index','product_wt'], axis=1).head(10))
         st.write('\n')
 
-        st.markdown('**Thông tin đánh giá của khách hàng**')
+        st.markdown('**Thông tin đánh giá của khách hàng:**')
         st.dataframe(review.head(10))
 
     ## Gensim model
