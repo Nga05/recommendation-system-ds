@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run Recommender_System_App.py
