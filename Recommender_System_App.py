@@ -139,6 +139,7 @@ def main():
                 prodIds = results['item_id'].tolist()
                 urls = results['url'].tolist()
                 prices = results['price'].tolist()
+                brands = results['brand'].tolist()
                 for i in range(results.shape[0]):
                     with st.container():
                         col1, col2 = st.columns(2)
@@ -148,6 +149,7 @@ def main():
                             link = '[product link](' + urls[i] + ')'
                             st.markdown(link, unsafe_allow_html=True)
                             st.write('Name: ', names[i])
+                            st.write('Brand: ', brands[i])
                             st.write('ID: ', str(prodIds[i]))
                             st.write('Price: '+ str(prices[i]) + ' VND')                
 
@@ -162,7 +164,7 @@ def main():
                     result_CBF = CBF_model[CBF_model.product_id == search_item]
                     product_name = products.loc[products.item_id==search_item, 'name'].to_string(index=False)[:40]
                     recommend = pd.merge(result_CBF, products, left_on='recomment_product_id', right_on='item_id', how='left')
-                    results =recommend[['product_id','recomment_product_id','name', 'score', 'price', 'url', 'image']]
+                    results =recommend[['product_id','recomment_product_id','name', 'brand', 'score', 'price', 'url', 'image']]
                 except:
                     results = 'Not Found'
                 st.markdown('**Product is viewing:**')
@@ -178,6 +180,7 @@ def main():
                 prodIds = results['recomment_product_id'].tolist()
                 urls = results['url'].tolist()
                 prices = results['price'].tolist()
+                brands = results['brand'].tolist()
                 for i in range(results.shape[0]):
                     with st.container():
                         col1, col2 = st.columns(2)
@@ -188,6 +191,7 @@ def main():
                             st.markdown(link, unsafe_allow_html=True)
                             # st.write('View detail: ', urls[i])                    
                             st.write('Name: ', names[i])
+                            st.write('Brand: ', brands[i])
                             st.write('ID: ', str(prodIds[i]))
                             st.write('Price: '+ str(prices[i]) + ' VND')
                   
