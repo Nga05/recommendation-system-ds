@@ -5,4 +5,3 @@ pathlib
 scikit-learn
 gensim
 Path
-zipfile
