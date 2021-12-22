@@ -1,7 +1,5 @@
 numpy
 pandas
 streamlit
-pathlib
 scikit-learn
 gensim
-Path
